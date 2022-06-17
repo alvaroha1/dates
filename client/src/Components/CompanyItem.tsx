@@ -9,15 +9,17 @@ interface CompanyItemProps {
 }
 
 export default function CompanyItem({ company }: CompanyItemProps) {
-  const { name, groupedByDay } = company;
+  const { name, groupedByDay, id } = company;
   const { selectedSlots } = useSelector((state: RootState) => state.slots)
   console.log(selectedSlots)
+  const isSlotSelected = selectedSlots.filter(item => item.id === id);
+  console.log(isSlotSelected, "isSelected")
   return (
     <Card>
       <Item>{name}</Item>
-      <Item>Time Slot Selected</Item>
+      {isSlotSelected ? <Item>{"a"}</Item> : <Item>Nothing Selected Yet</Item>}
       <List>
-        {Object.entries(groupedByDay).map(([day, value]) => <DayItem key={day} day={day} slots={value} />)}
+        {Object.entries(groupedByDay).map(([day, value]) => <DayItem key={day} name={name} id={id} day={day} slots={value} />)}
       </List>
     </Card>
   );

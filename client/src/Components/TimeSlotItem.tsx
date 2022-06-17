@@ -6,12 +6,14 @@ import { addSlot } from "../Redux/selectedSlotsSlice";
 import SelectedSlot from "../Types/SelectedSlot";
 interface TimeSlotProps {
   timeslot: TimeSlot;
+  name: string;
+  id: number;
 }
 
-export default function TimeSlotItem({ timeslot }: TimeSlotProps) {
+export default function TimeSlotItem({ timeslot, name, id }: TimeSlotProps) {
   const dispatch = useDispatch();
   const { end_time, start_time } = timeslot;
-  const reduxSlot: SelectedSlot = {name: "test", id: 1, time_slot: timeslot}
+  const reduxSlot: SelectedSlot = {name, id, time_slot: timeslot}
   const options: DateTimeFormatOptions = { hour: "numeric", minute: "numeric"};
   const formatStart = new Intl.DateTimeFormat('en-US', options).format(new Date(start_time));
   const formatEnd = new Intl.DateTimeFormat('en-US', options).format(new Date(end_time));
