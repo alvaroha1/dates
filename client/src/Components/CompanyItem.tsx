@@ -1,21 +1,21 @@
 import Company from "../Types/Company";
 import DayItem from "./DayItem";
-import TimeSlotItem from "./TimeSlotItem"
+import { Item, Card, List } from "../Styles/CompanyItem"
 
 interface CompanyItemProps {
   company: Company;
 }
 
 export default function CompanyItem({ company }: CompanyItemProps) {
-  const { name, time_slots, groupedByDay } = company;
+  const { name, groupedByDay } = company;
   
   return (
-    <div>
-      <div>{name}</div>
-      <div>Time Slot Selected</div>
-      <div>
+    <Card>
+      <Item>{name}</Item>
+      <Item>Time Slot Selected</Item>
+      <List>
         {Object.entries(groupedByDay).map(([day, value]) => <DayItem key={day} day={day} slots={value} />)}
-      </div>
-    </div>
+      </List>
+    </Card>
   );
 }

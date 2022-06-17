@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import CompanyItem from "./Components/CompanyItem";
 import { groupBy } from "./helpers";
 import Company from "./Types/Company";
+import { Main} from "./Styles/App"
 
 function prepareData(json: Company[]) {
   for (const company of json) {
@@ -28,11 +29,11 @@ function App() {
   }, []);
   return (
     <div>
-      <div>
+      <Main>
         {companies.map((company) => (
           <CompanyItem key={company.id} company={company} />
         ))}
-      </div>
+      </Main>
     </div>
   );
 }
