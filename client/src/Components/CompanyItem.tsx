@@ -1,5 +1,7 @@
 import Company from "../Types/Company";
 import DayItem from "./DayItem";
+import { useSelector } from "react-redux";
+import { RootState } from "../reducers";
 import { Item, Card, List } from "../Styles/CompanyItem"
 
 interface CompanyItemProps {
@@ -8,7 +10,8 @@ interface CompanyItemProps {
 
 export default function CompanyItem({ company }: CompanyItemProps) {
   const { name, groupedByDay } = company;
-  
+  const { selectedSlots } = useSelector((state: RootState) => state.slots)
+  console.log(selectedSlots)
   return (
     <Card>
       <Item>{name}</Item>
