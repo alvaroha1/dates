@@ -31,8 +31,11 @@ function checkIfBlocked(timeslot: TimeSlot, selectedSlots: SelectedSlot[]) {
       ) {
         return true;
       } else if (
-        slotStart.getTime() < selectedStart.getTime() &&
-        slotEnd.getTime() < selectedEnd.getTime()
+        (slotStart.getTime() < selectedEnd.getTime() &&
+          slotStart.getTime() < selectedStart.getTime() &&
+          slotEnd.getTime() > selectedStart.getTime()) ||
+        (slotStart.getTime() > selectedStart.getTime() &&
+          slotStart.getTime() < selectedEnd.getTime())
       ) {
         return true;
       } else {
