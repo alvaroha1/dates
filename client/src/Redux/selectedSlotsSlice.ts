@@ -10,8 +10,9 @@ export const selectedSlotsSlice = createSlice({
     selectedSlots: initialArray
   },
   reducers: {
-    addSlot: (state , action: PayloadAction<SelectedSlot>) => {
-      state.selectedSlots.push(action.payload)
+    addSlot: (state, action: PayloadAction<SelectedSlot>) => {
+      const alreadySelected = state.selectedSlots.find(slot => slot.id === action.payload.id)
+      if (!alreadySelected)state.selectedSlots.push(action.payload)
     },
     removeSlot: (state, action: PayloadAction<SelectedSlot>) => {
       const newState = state.selectedSlots.filter(element => element.id !== action.payload.id);
