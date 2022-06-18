@@ -12,7 +12,7 @@
 - Setup redux
 - Implement state with redux
 - Implement styes with styled-components
-- Refine logic
+- Refine logic and fix bugs
 
 ## Screenshots
 
@@ -62,3 +62,4 @@ You can run the unit tests using:
 1. Implement unit testing with Jest and react-testing-library.
 2. Improve styling and responsive design.
 3. Replace styled-components with plain CSS for better caching.
+4. Implement Lazy Loading
