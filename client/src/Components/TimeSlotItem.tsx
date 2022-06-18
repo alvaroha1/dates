@@ -18,8 +18,7 @@ interface TimeSlotProps {
   day: string;
 }
 
-function checkIfBlocked(timeslot: TimeSlot, selectedSlots: SelectedSlot[]) {
-  for (const slot of selectedSlots) {
+function checkIfBlocked(timeslot: TimeSlot, slot: SelectedSlot) {
     if (slot.day === timeslot.day) {
       const slotStart = new Date(timeslot.start_time);
       const slotEnd = new Date(timeslot.end_time);
@@ -43,7 +42,6 @@ function checkIfBlocked(timeslot: TimeSlot, selectedSlots: SelectedSlot[]) {
       }
     }
     return false;
-  }
 }
 
 export default function TimeSlotItem({
@@ -57,6 +55,10 @@ export default function TimeSlotItem({
   const reduxSlot: SelectedSlot = { name, id, time_slot: timeslot, day };
   const { selectedSlots } = useSelector((state: RootState) => state.slots);
   const isSlotSelected = selectedSlots.filter((item) => item.id === id);
+  let blocked = false;
+  for (const slot of selectedSlots) {
+    if (!blocked) blocked = checkIfBlocked(timeslot, slot)
+  }
   const slotSelected = function () {
     if (selectedSlots.length > 0) {
       if (isSlotSelected.length > 0) {
@@ -84,9 +86,7 @@ export default function TimeSlotItem({
           );
         }
       } else {
-        console.log("2");
-        if (checkIfBlocked(timeslot, selectedSlots)) {
-          // slot busy
+        if (blocked) {
           return (
             <div key={start_time}>
               <ButtonDivDisabled>
