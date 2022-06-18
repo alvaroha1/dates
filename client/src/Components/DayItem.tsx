@@ -21,6 +21,7 @@ export default function DayItem({ day, slots, id, name }: DayItemProps) {
           timeslot={slot}
           name={name}
           id={id}
+          day={day}
         />
       ))}
     </div>
