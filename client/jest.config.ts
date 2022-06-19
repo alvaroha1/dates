@@ -3,13 +3,6 @@ module.exports = {
   "testEnvironment": "jsdom",  
   "moduleFileExtensions": ['js', 'jsx', 'ts', 'tsx', 'json', 'node',"d.ts"],
   "verbose": true,
-  "collectCoverage":true,
-  "collectCoverageFrom": [
-    "./src/**/*.{js,ts}",
-    "!**/*types.ts",
-    "!**/index.ts",
-    "!**/node_modules/**",
-  ],
   "coverageThreshold": {
     "global": {
       "branches": 100,
