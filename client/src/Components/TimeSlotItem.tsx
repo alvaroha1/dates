@@ -18,7 +18,7 @@ interface TimeSlotProps {
   day: string;
 }
 
-function checkIfBlocked(timeslot: TimeSlot, slot: SelectedSlot) {
+export function checkIfBlocked(timeslot: TimeSlot, slot: SelectedSlot) {
     if (slot.day === timeslot.day) {
       const slotStart = new Date(timeslot.start_time);
       const slotEnd = new Date(timeslot.end_time);

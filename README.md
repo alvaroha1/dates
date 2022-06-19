@@ -49,7 +49,7 @@ To install the dependencies run in the client folder:
 
 And to run the app, also in the client folder:
 
-`npm run start`
+`npm start`
 
 ## Running the tests
 
