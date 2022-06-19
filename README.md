@@ -66,7 +66,7 @@ You can run the unit tests using:
 
 ## Future Work
 
-1  Complete unit testing with Jest and react-testing-library until coverage of at least 90%.
+1.  Complete unit testing with Jest and react-testing-library until coverage of at least 90%.
 2. Improve styling and responsive design.
 3. Replace styled-components with plain CSS for better caching.
 4. Implement Lazy Loading
