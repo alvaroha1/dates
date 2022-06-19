@@ -34,19 +34,25 @@ Once one time slot is selected in one company it will disable the rest of the sl
 
 ## Server Setup
 
+First of all you need Node version 12 or superior and json-server.
+
+To Install json-server run:
+
+`npm install -g json-server`
+
 To install the dependencies run:
 
-`npm run install`
+`npm install`
 
 And to run the app:
 
-`npm run server`
+`npm start`
 
 ## Frontend Setup
 
 To install the dependencies run in the client folder:
 
-`npm run install`
+`npm install`
 
 And to run the app, also in the client folder:
 
